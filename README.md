@@ -1,14 +1,19 @@
-### TS-Next-Mantineでアプリを作るときのスターターキット
+#iimon_testB
 
-#### 都度改善していく
+###ローカル環境構築
 
 ```bash
-yarn create next-app --example https://github.com/katayama8000/TS-Next-Mantine-BASIC
+git clone https://github.com/katayama8000/iimon_testB.git
 ```
 
-#### 依存関係を最新にする
 ```bash
-yarn upgrade --latest
+yarn
 ```
-  
-"# iimon_testB" 
+
+```
+yarn dev
+```
+
+localhost3000
+
+※npmを使用してもかまいません
