@@ -16,6 +16,7 @@ const Home: NextPage = () => {
   };
 
   const handleOnSubmit = () => {
+    //空の場合は処理を終了
     if (!text) return;
 
     const newTodo: Todo = {
@@ -29,7 +30,7 @@ const Home: NextPage = () => {
   };
 
   const handleOnRemove = (id: number, removed: boolean) => {
-    const deepCopy = todos.map((todo: Todo) => ({ ...todo }));
+    const deepCopy: Todo[] = todos.map((todo: Todo) => ({ ...todo }));
 
     const newTodos = deepCopy.map((todo: Todo) => {
       if (todo.id === id) {
