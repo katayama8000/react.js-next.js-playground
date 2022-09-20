@@ -1,2 +1,10 @@
 @tailwind components;
 @tailwind utilities;
+
+.border-navy {
+  border: 1px solid navy;
+}
+
+.bg-color-navy {
+  background-color: navy;
+}
