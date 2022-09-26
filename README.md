@@ -14,6 +14,6 @@ yarn
 yarn dev
 ```
 
-localhost:5173
+localhost:3000
 
 ※npmを使用してもかまいません
