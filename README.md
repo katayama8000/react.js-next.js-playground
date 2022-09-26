@@ -1,4 +1,4 @@
-# iimon_testB
+# iimon_testC
 
 ### ローカル環境構築
 
@@ -14,6 +14,6 @@ yarn
 yarn dev
 ```
 
-localhost3000
+localhost:5173
 
 ※npmを使用してもかまいません
