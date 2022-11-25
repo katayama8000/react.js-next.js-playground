@@ -7,7 +7,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
       <Head>
-        <title>iimon</title>
+        <title>coading</title>
       </Head>
       <MantineProvider withGlobalStyles withNormalizeCSS>
         <Component {...pageProps} />
