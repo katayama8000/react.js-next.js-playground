@@ -44,12 +44,12 @@ export default function Index3() {
         <input
           type="text"
           placeholder="First name"
-          {...register("FirstName", { required: true, maxLength: 80 })}
+          {...register("FirstName", { required: true, maxLength: 8 })}
         />
         <input
           type="text"
           placeholder="Last name"
-          {...register("LastName", { required: true, maxLength: 100 })}
+          {...register("LastName", { required: true, maxLength: 10 })}
         />
         <input
           type="text"
