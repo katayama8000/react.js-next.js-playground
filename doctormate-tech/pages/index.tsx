@@ -7,25 +7,13 @@ import Link from "next/link";
 const inter = Inter({ subsets: ["latin"] });
 
 const LINKS = [
-  {
-    name: "RHF1",
-    href: "index1",
-  },
-  {
-    name: "RHF2",
-    href: "index2",
-  },
-  {
-    name: "RHF3",
-    href: "index3",
-  },
-  {
-    name: "Image upload",
-    href: "index4",
-  }, {
-    name: "controller",
-    href: "index5",
-  }
+  "RHF1",
+  "RHF2",
+  "RHF3",
+  "Image upload",
+  "controller1",
+  "controller2",
+  "controller-basic",
 ] as const;
 
 export default function Home() {
@@ -38,9 +26,9 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
-        {LINKS.map((link) => (
-          <Link href={link.href} key={link.href}>
-            {link.name} |{" "}
+        {LINKS.map((link, index) => (
+          <Link href={`index${index + 1}`} key={link}>
+            {link} |{" "}
           </Link>
         ))}
       </main>
