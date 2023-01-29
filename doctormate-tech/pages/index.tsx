@@ -22,7 +22,10 @@ const LINKS = [
   {
     name: "Image upload",
     href: "index4",
-  },
+  }, {
+    name: "controller",
+    href: "index5",
+  }
 ] as const;
 
 export default function Home() {
