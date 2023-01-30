@@ -115,9 +115,6 @@ const Index6: React.FC = () => {
               </Stack>
             </RadioGroup>
           )}
-          rules={{
-            required: { value: true, message: "This is required." },
-          }}
         />
         <FormErrorMessage>
           {errors.position && errors.position?.message}
