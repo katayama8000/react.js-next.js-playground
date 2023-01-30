@@ -6,6 +6,9 @@ import {
   FormErrorMessage,
   FormLabel,
   Input,
+  Radio,
+  RadioGroup,
+  Stack,
 } from "@chakra-ui/react";
 import { Controller, SubmitHandler, useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -17,6 +20,7 @@ type Input = {
   name: string;
   age: number;
   gernder: typeof GENDER;
+  position: string;
 };
 
 const schema = yup.object({
@@ -26,6 +30,7 @@ const schema = yup.object({
     .required("年齢を入力してください")
     .positive("年齢は正の数で入力してください"),
   gernder: yup.array().required("性別を選択してください"),
+  position: yup.number().required("Position is required."),
 });
 
 const Index6: React.FC = () => {
@@ -43,6 +48,7 @@ const Index6: React.FC = () => {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
+      {/* 名前 */}
       <FormControl isInvalid={Boolean(errors.name)}>
         <FormLabel>名前</FormLabel>
         <Controller
@@ -56,6 +62,7 @@ const Index6: React.FC = () => {
         </FormErrorMessage>
       </FormControl>
 
+      {/* 年齢 */}
       <FormControl isInvalid={Boolean(errors.age)}>
         <FormLabel>年齢</FormLabel>
         <Controller
@@ -67,6 +74,7 @@ const Index6: React.FC = () => {
         <FormErrorMessage>{errors.age && errors.age.message}</FormErrorMessage>
       </FormControl>
 
+      {/* 性別 */}
       <FormControl isInvalid={Boolean(errors.gernder)}>
         <FormLabel>性別</FormLabel>
         <Controller
@@ -84,6 +92,35 @@ const Index6: React.FC = () => {
         />
         <FormErrorMessage>
           {errors.gernder && errors.gernder.message}
+        </FormErrorMessage>
+      </FormControl>
+
+      <FormControl id="position" isInvalid={Boolean(errors.position)}>
+        <FormLabel>Position</FormLabel>
+        <Controller
+          name="position"
+          control={control}
+          render={({ field }) => (
+            <RadioGroup {...field}>
+              <Button
+                onClick={() => {
+                  console.log(field);
+                }}
+              >
+                console
+              </Button>
+              <Stack direction="row">
+                <Radio value={"1"}>First</Radio>
+                <Radio value={"2"}>Second</Radio>
+              </Stack>
+            </RadioGroup>
+          )}
+          rules={{
+            required: { value: true, message: "This is required." },
+          }}
+        />
+        <FormErrorMessage>
+          {errors.position && errors.position?.message}
         </FormErrorMessage>
       </FormControl>
 
