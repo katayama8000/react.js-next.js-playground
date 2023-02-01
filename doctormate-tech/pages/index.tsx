@@ -14,6 +14,7 @@ const LINKS = [
   "controller1",
   "controller2",
   "controller-basic",
+  "firebase"
 ] as const;
 
 export default function Home() {
