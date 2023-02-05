@@ -20,6 +20,17 @@ const Index11 = () => {
     };
     f();
   }, []);
+
+  useEffect(() => {
+    const f = async () => {
+      const res = await axios.get(
+        "https://jsonplaceholder.typicode.com/todos/3"
+      );
+      console.log(res.data);
+    };
+    f();
+  }, [render]);
+
   return (
     <div>
       <Text fontWeight={"bold"} fontSize={"2xl"}>

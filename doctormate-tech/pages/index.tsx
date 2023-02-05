@@ -17,7 +17,9 @@ const LINKS = [
   "firebase",
   "firebase-jotai",
   "firebase-theme",
-  "useEffect",
+  "useEffect-1",
+  "useEffect-2",
+  "useEffect-3",
 ] as const;
 
 export default function Home() {
