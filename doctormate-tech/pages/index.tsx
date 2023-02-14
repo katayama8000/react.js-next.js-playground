@@ -14,7 +14,13 @@ const LINKS = [
   "controller1",
   "controller2",
   "controller-basic",
-  "firebase"
+  "firebase",
+  "firebase-jotai",
+  "firebase-theme",
+  "useEffect-1",
+  "useEffect-2",
+  "jotai-core",
+  "firebase-practice"
 ] as const;
 
 export default function Home() {
