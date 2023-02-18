@@ -3,6 +3,7 @@ import {
   collection,
   doc,
   DocumentReference,
+  DocumentSnapshot,
   getDoc,
   getDocs,
   orderBy,
@@ -46,12 +47,47 @@ const Index14 = () => {
     console.log(member);
   };
 
+  const getGender = async () => {
+    const q = query(collection(db, 'master', 'v1', 'gender'));
+    console.log(q);
+    const querySnapshot = await getDocs(q);
+    const gender = querySnapshot.docs.map((doc) => doc.data());
+    console.log(gender);
+  };
+
+  const getFacilityUser = async () => {
+    const facilityUserRef: DocumentReference = doc(
+      db,
+      'facilities',
+      'test',
+      'facilityUsers',
+      'PXyujDa3M9PSEBcqNCld'
+    );
+    const facilityUserDoc: DocumentSnapshot = await getDoc(facilityUserRef);
+    console.log(facilityUserDoc);
+    console.log(facilityUserDoc.data());
+    const gernderRef = facilityUserDoc.data()?.gender;
+    console.log(gernderRef);
+    const genderDoc = await getDoc(gernderRef);
+    console.log(genderDoc.data());
+  };
+
   return (
     <div>
       <h1>firebase</h1>
-      <Button onClick={get1}>doc1</Button>
-      <Button onClick={get2}>doc2</Button>
-      <Button onClick={get3}>collection</Button>
+      <Button onClick={get1} mx={2}>
+        doc1
+      </Button>
+      <Button onClick={get2} mx={2}>
+        doc2
+      </Button>
+      <Button onClick={get3} mx={2}>
+        collection
+      </Button>
+      <Button onClick={getGender} mx={2}>
+        gender
+      </Button>
+      <Button onClick={getFacilityUser}>getFacilityUser</Button>
     </div>
   );
 };
