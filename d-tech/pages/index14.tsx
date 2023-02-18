@@ -8,9 +8,12 @@ import {
   getDocs,
   orderBy,
   query,
+  Timestamp,
 } from 'firebase/firestore';
 import React from 'react';
 import { db } from '../firebase/firebase';
+import { facilityUserConverter } from '../lib/converter/facilityUser.converter';
+
 const Index14 = () => {
   const get1 = async () => {
     console.log('getDoc');
@@ -55,6 +58,12 @@ const Index14 = () => {
     console.log(gender);
   };
 
+  type TFUser = {
+    firstName: string;
+    birthDate: Timestamp;
+    gernderRef: DocumentReference;
+  };
+
   const getFacilityUser = async () => {
     const facilityUserRef: DocumentReference = doc(
       db,
@@ -62,7 +71,8 @@ const Index14 = () => {
       'test',
       'facilityUsers',
       'PXyujDa3M9PSEBcqNCld'
-    );
+    ).withConverter(facilityUserConverter);
+
     const facilityUserDoc: DocumentSnapshot = await getDoc(facilityUserRef);
     console.log(facilityUserDoc);
     console.log(facilityUserDoc.data());
