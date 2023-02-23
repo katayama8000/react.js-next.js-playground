@@ -23,6 +23,7 @@ const LINKS = [
   'jotai-core',
   'firebase-practice',
   'yup-react-hook-form',
+  'zod-react-hook-form',
 ] as const;
 
 export default function Home() {
