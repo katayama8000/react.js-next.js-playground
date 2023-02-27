@@ -25,6 +25,7 @@ const LINKS = [
   'yup-react-hook-form',
   'zod-react-hook-form',
   'react-hook-form-watch',
+  'react-hook-form-controller',
 ] as const;
 
 export default function Home() {
