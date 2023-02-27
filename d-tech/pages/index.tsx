@@ -24,6 +24,7 @@ const LINKS = [
   'firebase-practice',
   'yup-react-hook-form',
   'zod-react-hook-form',
+  'react-hook-form-watch',
 ] as const;
 
 export default function Home() {
