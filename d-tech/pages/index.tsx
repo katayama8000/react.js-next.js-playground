@@ -26,6 +26,7 @@ const LINKS = [
   'zod-react-hook-form',
   'react-hook-form-watch',
   'react-hook-form-controller',
+  'todo',
 ] as const;
 
 export default function Home() {
