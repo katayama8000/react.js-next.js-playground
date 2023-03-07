@@ -26,6 +26,8 @@ const schema = yup.object().shape({
   birthDateDay: yup.string().required(),
 });
 
+type Schema = yup.InferType<typeof schema>;
+
 const schema2 = yup.object({
   name: yup.string().required(),
   age: yup.number().required(),
