@@ -36,6 +36,8 @@ const schema2 = yup.object({
   birthDateDay: yup.string().required(),
 });
 
+type Schema2 = yup.InferType<typeof schema2>;
+
 const schema3 = yup
   .object({
     name: yup.string().required(),
@@ -46,6 +48,8 @@ const schema3 = yup
     birthDateMonth: yup.string().required(),
     birthDateDay: yup.string().required(),
   });
+
+type Schema3 = yup.InferType<typeof schema3>;
 
 const schema4 = yup.object().shape({
   name: yup.string().required(),
@@ -81,6 +85,8 @@ const schema5 = yup
         }
       ),
   });
+
+type Schema5 = yup.InferType<typeof schema5>;
 
 type form5 = {
   name: string;
