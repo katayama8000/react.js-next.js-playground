@@ -1,6 +1,14 @@
 import { Button } from '@chakra-ui/react';
-import { addDoc, collection, doc, getDoc, setDoc } from 'firebase/firestore';
+import {
+  Transaction,
+  addDoc,
+  collection,
+  doc,
+  getDoc,
+  setDoc,
+} from 'firebase/firestore';
 import { db } from '../firebase/firebase';
+import { storage } from '../firebase/firebase';
 import { useToast } from '@chakra-ui/react';
 import { runTransaction } from 'firebase/firestore';
 
@@ -135,6 +143,17 @@ const Index8 = () => {
     }
   };
 
+  const setStorage = async () => {
+    try {
+      runTransaction(db, async (transaction) => {
+        // transactionでstorageに保存したい
+        console.log(transaction);
+      });
+    } catch (error) {
+      console.error('Error writing document: ', error);
+    }
+  };
+
   return (
     <div>
       <h1>firebase</h1>
@@ -179,6 +198,13 @@ const Index8 = () => {
         }}
       >
         deleteTransaction
+      </Button>
+      <Button
+        onClick={() => {
+          setStorage();
+        }}
+      >
+        setStorage
       </Button>
     </div>
   );
