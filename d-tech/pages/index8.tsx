@@ -1,5 +1,5 @@
 import { Button } from '@chakra-ui/react';
-import { addDoc, collection, doc, setDoc } from 'firebase/firestore';
+import { addDoc, collection, doc, getDoc, setDoc } from 'firebase/firestore';
 import { db } from '../firebase/firebase';
 import { useToast } from '@chakra-ui/react';
 import { runTransaction } from 'firebase/firestore';
@@ -50,7 +50,8 @@ const Index8 = () => {
     try {
       await runTransaction(db, async (transaction) => {
         const cityRef = doc(db, 'cities', 'LA');
-        console.log(cityRef);
+        const citySnapshot = await getDoc(cityRef);
+        console.log(citySnapshot.ref.path === cityRef.path);
         const sfDoc = await transaction.get(cityRef);
         if (!sfDoc.exists()) {
           throw 'Document does not exist!';
@@ -65,6 +66,25 @@ const Index8 = () => {
         };
         transaction.set(cityRef, japan);
       });
+      console.log('Transaction successfully committed!');
+    } catch (e) {
+      console.log('Transaction failed: ', e);
+    }
+  };
+
+  const deleteTransaction = async () => {
+    try {
+      await runTransaction(db, async (transaction) => {
+        const cityRef = doc(db, 'cities', 'LA');
+        const citySnapshot = await getDoc(cityRef);
+        console.log(citySnapshot.ref.path === cityRef.path);
+        const sfDoc = await transaction.get(cityRef);
+        if (!sfDoc.exists()) {
+          throw 'Document does not exist!';
+        }
+        transaction.delete(cityRef);
+      });
+
       console.log('Transaction successfully committed!');
     } catch (e) {
       console.log('Transaction failed: ', e);
@@ -152,6 +172,13 @@ const Index8 = () => {
         }}
       >
         setTransaction
+      </Button>
+      <Button
+        onClick={() => {
+          deleteTransaction();
+        }}
+      >
+        deleteTransaction
       </Button>
     </div>
   );
