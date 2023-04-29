@@ -27,7 +27,7 @@ const LINKS = [
   'react-hook-form-watch',
   'react-hook-form-controller',
   'todo',
-  'transaction',
+  'firebase-type',
 ] as const;
 
 export default function Home() {
@@ -40,7 +40,13 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
-        <Center bg="tomato" color="white">
+        <Center
+          bg="tomato"
+          color="white"
+          style={{
+            height: '100vh',
+          }}
+        >
           <Box w={700} m={20}>
             {LINKS.map((link, index) => (
               <Link
