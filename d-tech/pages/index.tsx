@@ -24,6 +24,7 @@ const LINKS = [
   'todo',
   'firebase-type',
   'firebase-complex',
+  'firebase-offline',
 ] as const;
 
 export default function Home() {
