@@ -5,6 +5,7 @@ import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   updateProfile,
+  signInWithCustomToken,
 } from 'firebase/auth';
 import axios from 'axios';
 
@@ -84,6 +85,12 @@ const Index01: NextPage = () => {
     }
   };
 
+  const signInCustomToken = async () => {
+    const customToken = "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJodHRwczovL2lkZW50aXR5dG9vbGtpdC5nb29nbGVhcGlzLmNvbS9nb29nbGUuaWRlbnRpdHkuaWRlbnRpdHl0b29sa2l0LnYxLklkZW50aXR5VG9vbGtpdCIsImlhdCI6MTY4NzUyNDk4MiwiZXhwIjoxNjg3NTI4NTgyLCJpc3MiOiJmaXJlYmFzZS1hZG1pbnNkay1ycHF5NEBrYXRheWFtYS1zYW5kYm94LTYzOWVmLmlhbS5nc2VydmljZWFjY291bnQuY29tIiwic3ViIjoiZmlyZWJhc2UtYWRtaW5zZGstcnBxeTRAa2F0YXlhbWEtc2FuZGJveC02MzllZi5pYW0uZ3NlcnZpY2VhY2NvdW50LmNvbSIsInVpZCI6IkdIUWhSc1NSVENkbjJkbW16RXp3TWY5VHdVbTIifQ.PIfEuV23hdWHtzC6wfYs__DWkc1wGUqaZTGHgW5Ghqdo12yFhoszvoKa4jT2FfzF6JUc3n2OyNkJ9kOmaG7im14PKL7DsHXruIUu-NgCJQNy3vjy2Wu52w-o4VM-pYdIwuNeqn8erwPYb3uJEj36Go8hsgL-rPnLcQezxmX43E9mrtArLV3HcKwLHRjBtdh1qoZOF0nMMH9yMQVvvYdU6X4_b7bS7B-xNoZ9YVWx0-Lw5INJGaOXzAhEL_xkPAeJRgWPZlDM9xj-1l5pjCvshx1VNapzlx2DzSsRSIHFo_nEdVfkCUn13SwLouwsLVt0k7IEJjNbfeVyJAWbvheR4Q"
+    const res = await signInWithCustomToken(auth, customToken);
+    console.log({ res });
+  }
+
   return (
     <div>
       <h1>{name}</h1>
@@ -93,6 +100,7 @@ const Index01: NextPage = () => {
       <button onClick={signIn}>signIn</button>
       <button onClick={signOut}>signOut</button>
       <button onClick={setCustomClaims}>setCustomClaims</button>
+      <button onClick={signInCustomToken}>signInCustomToken</button>
     </div>
   );
 };
